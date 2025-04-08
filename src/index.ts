@@ -1,4 +1,5 @@
 import express, { Application, Request, Response, NextFunction } from "express";
+import fs from 'fs'; // fs: file system
 import { readData } from "./utils/read.data.json";
 
 const port = 8000;
@@ -24,6 +25,22 @@ app.get("/purchase-orders", (req: Request, res: Response) => {
         });
     }
 });
+
+app.post('/purchase-orders', (req: Request, res: Response) => {
+  
+  const {itemName, category, quantity, supplier, status} = req.body 
+  const data = readData()
+
+  data.purchaseOrders.push({id: data.purchaseOrders[data.purchaseOrders.length-1].id + 1, itemName, category, quantity, supplier, status})
+  
+  fs.writeFileSync('./src/db/db.json', JSON.stringify(data))
+
+  res.status(201).json({
+      success:true, 
+      message: 'create order success',
+      data: {itemName, category, quantity, supplier, status}
+  })
+})
 
 // ERROR HANDLING MIDDLEWARE
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {

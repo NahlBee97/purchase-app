@@ -1,28 +1,36 @@
 {
-  "purchaseOrders": [
+  "purchaseOrders":[
     {
-      "id": 1,
-      "itemName": "Laptop Dell XPS 13",
-      "category": "Electronics",
-      "quantity": 10,
-      "supplier": "Tech Supplier Inc.",
-      "status": "Pending"
+      "id":1,
+      "itemName":"Laptop Dell XPS 13",
+      "category":"Electronics",
+      "quantity":10,
+      "supplier":"Tech Supplier Inc.",
+      "status":"Pending"
     },
     {
-      "id": 2,
-      "itemName": "Laptop ASUS ROG 101",
-      "category": "Electronics",
-      "quantity": 10,
-      "supplier": "Asus Supplier Inc.",
-      "status": "Pending"
+      "id":2,
+      "itemName":"Laptop ASUS ROG 101",
+      "category":"Electronics",
+      "quantity":10,
+      "supplier":"Asus Supplier Inc.",
+      "status":"Pending"
     },
     {
-      "id": 3,
-      "itemName": "Laptop HP 13001",
-      "category": "Electronics",
-      "quantity": 10,
-      "supplier": "HP Supplier Inc.",
-      "status": "Pending"
+      "id":3,
+      "itemName":"Laptop HP 13001",
+      "category":"Electronics",
+      "quantity":10,
+      "supplier":"HP Supplier Inc.",
+      "status":"Pending"
+    },
+    {
+      "id":4,
+      "itemName":"Laptop Dell XPS 13",
+      "category":"Electronics",
+      "quantity":10,
+      "supplier":"Tech Supplier Inc.",
+      "status":"Pending"
     }
   ]
 }
