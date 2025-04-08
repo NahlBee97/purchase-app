@@ -2,7 +2,7 @@
   "purchaseOrders": [
     {
       "id": 1,
-      "itemName": "Laptop Dell XPS 13",
+      "itemName": "Laptop AXIO Pongo 5",
       "category": "Electronics",
       "quantity": 10,
       "supplier": "Tech Supplier Inc.",
