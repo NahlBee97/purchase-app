@@ -1,14 +1,6 @@
 {
   "purchaseOrders": [
     {
-      "id": 1,
-      "itemName": "Laptop AXIO Pongo 5",
-      "category": "Electronics",
-      "quantity": 10,
-      "supplier": "Tech Supplier Inc.",
-      "status": "Pending"
-    },
-    {
       "id": 2,
       "itemName": "Laptop ASUS ROG 101",
       "category": "Electronics",
