@@ -1,6 +1,6 @@
 import express, { Application, Request, Response, NextFunction } from "express";
-import { readData } from "./utils/read.data.json";
 import { IPurchase } from "./interfaces/data.interface";
+import { readData } from "./utils/read.data.json";
 import { writeData } from "./utils/write.data.json";
 
 const port = 8000;
@@ -22,6 +22,31 @@ app.get("/purchase-orders", (req: Request, res: Response) => {
     });
   } catch (err: any) {
     res.status(400).json({
+      message: err.message,
+      data: {},
+    });
+  }
+});
+
+// Read a Purchase Order by ID
+
+app.get("/purchase-orders/:id", (req: Request, res: Response) => {
+  try {
+    const orderList = readData().purchaseOrders;
+
+    const { id } = req.params;
+    const purchaseOrder = orderList.find(
+      (order: any) => order.id === parseInt(id)
+    );
+
+    if (!purchaseOrder) throw new Error("Purchase order not found");
+
+    res.status(200).json({
+      message: "Get purchase order successfully",
+      data: purchaseOrder,
+    });
+  } catch (err: any) {
+    res.status(500).json({
       message: err.message,
       data: {},
     });
@@ -92,6 +117,29 @@ app.delete("/purchase-orders/:id", (req: Request, res: Response) => {
       data: {},
     });
   }
+});
+
+// Create Purchase
+app.post("/purchase-orders", (req: Request, res: Response) => {
+  const { itemName, category, quantity, supplier, status } = req.body;
+  const data = readData();
+
+  data.purchaseOrders.push({
+    id: data.purchaseOrders[data.purchaseOrders.length - 1].id + 1,
+    itemName,
+    category,
+    quantity,
+    supplier,
+    status,
+  });
+
+  writeData(data);
+
+  res.status(201).json({
+    success: true,
+    message: "create order success",
+    data: { itemName, category, quantity, supplier, status },
+  });
 });
 
 // ERROR HANDLING MIDDLEWARE

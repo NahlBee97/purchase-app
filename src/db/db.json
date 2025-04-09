@@ -15,6 +15,30 @@
       "quantity": 10,
       "supplier": "HP Supplier Inc.",
       "status": "Pending"
+    },
+    {
+      "id": 4,
+      "itemName": "Laptop Dell XPS 13",
+      "category": "Electronics",
+      "quantity": 10,
+      "supplier": "Tech Supplier Inc.",
+      "status": "Pending"
+    },
+    {
+      "id": 5,
+      "itemName": "Laptop Dell XPS 13",
+      "category": "Electronics",
+      "quantity": 10,
+      "supplier": "Tech Supplier Inc.",
+      "status": "Pending"
+    },
+    {
+      "id": 6,
+      "itemName": "Laptop HP XPS 13",
+      "category": "Electronics",
+      "quantity": 1,
+      "supplier": "Tech Supplier Inc.",
+      "status": "Pending"
     }
   ]
 }
