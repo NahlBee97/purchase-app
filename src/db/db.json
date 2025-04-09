@@ -14,7 +14,7 @@
       "category": "Electronics",
       "quantity": 10,
       "supplier": "HP Supplier Inc.",
-      "status": "Pending"
+      "status": "Delivered"
     },
     {
       "id": 4,
@@ -30,7 +30,7 @@
       "category": "Electronics",
       "quantity": 10,
       "supplier": "Tech Supplier Inc.",
-      "status": "Pending"
+      "status": "Delivered"
     },
     {
       "id": 6,

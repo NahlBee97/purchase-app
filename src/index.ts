@@ -142,6 +142,29 @@ app.post("/purchase-orders", (req: Request, res: Response) => {
   });
 });
 
+// Track Order Status
+app.get("/purchase-orders/status/:status", (req: Request, res: Response) => {
+  try {
+    const purchaseStatus = req.params.status.toLowerCase();
+
+    const data = readData();
+
+    const purchase = data.purchaseOrders.filter(
+      (purchase: IPurchase) => purchase.status.toLowerCase() === purchaseStatus
+    );
+
+    res.status(200).json({
+      message: `track purchase data by status ${purchaseStatus} success`,
+      data: purchase,
+    });
+  } catch (err: any) {
+    res.status(400).json({
+      message: err.message,
+      data: {},
+    });
+  }
+});
+
 // ERROR HANDLING MIDDLEWARE
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   res.status(400).json({
