@@ -107,6 +107,33 @@ app.put("/purchase-orders/:id", (req: Request, res: Response) => {
   }
 });
 
+// delete purchase
+app.delete("/purchase-orders/:id", (req: Request, res: Response) => {
+  try {
+    const purchaseId = parseInt(req.params.id);
+
+    const data = readData();
+
+    const purchaseIndex = data.purchaseOrders.findIndex(
+      (purchase: IPurchase) => purchase.id === purchaseId
+    );
+
+    data.purchaseOrders.splice(purchaseIndex, 1);
+
+    writeData(data);
+
+    res.status(200).json({
+      message: `delete purchase data by id ${purchaseId} success`,
+      data: data,
+    });
+  } catch (err: any) {
+    res.status(400).json({
+      message: err.message,
+      data: {},
+    });
+  }
+});
+
 // Create Purchase
 app.post("/purchase-orders", (req: Request, res: Response) => {
   const { itemName, category, quantity, supplier, status } = req.body;
@@ -128,6 +155,29 @@ app.post("/purchase-orders", (req: Request, res: Response) => {
     message: "create order success",
     data: { itemName, category, quantity, supplier, status },
   });
+});
+
+// Track Order Status
+app.get("/purchase-orders/status/:status", (req: Request, res: Response) => {
+  try {
+    const purchaseStatus = req.params.status.toLowerCase();
+
+    const data = readData();
+
+    const purchase = data.purchaseOrders.filter(
+      (purchase: IPurchase) => purchase.status.toLowerCase() === purchaseStatus
+    );
+
+    res.status(200).json({
+      message: `track purchase data by status ${purchaseStatus} success`,
+      data: purchase,
+    });
+  } catch (err: any) {
+    res.status(400).json({
+      message: err.message,
+      data: {},
+    });
+  }
 });
 
 // ERROR HANDLING MIDDLEWARE
