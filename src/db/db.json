@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "purchaseOrders": [
     {
       "id": 2,
@@ -41,4 +42,64 @@
       "status": "Pending"
     }
   ]
+=======
+    "purchaseOrders": [
+        {
+            "id": 1,
+            "itemName": "Laptop AXIO Pongo 5",
+            "category": "Electronics",
+            "quantity": 10,
+            "supplier": "Tech Supplier Inc.",
+            "status": "Pending"
+        },
+        {
+            "id": 2,
+            "itemName": "Laptop ASUS ROG 101",
+            "category": "Electronics",
+            "quantity": 10,
+            "supplier": "Asus Supplier Inc.",
+            "status": "Pending"
+        },
+        {
+            "id": 3,
+            "itemName": "Laptop HP 13001",
+            "category": "Electronics",
+            "quantity": 10,
+            "supplier": "HP Supplier Inc.",
+            "status": "Pending"
+        },
+        {
+            "id": 4,
+            "itemName": "Laptop Dell XPS 13",
+            "category": "Electronics",
+            "quantity": 10,
+            "supplier": "Tech Supplier Inc.",
+            "status": "Pending"
+        },
+        {
+            "id": 5,
+            "itemName": "Laptop Dell XPS 13",
+            "category": "Electronics",
+            "quantity": 10,
+            "supplier": "Tech Supplier Inc.",
+            "status": "Pending"
+        },
+        {
+            "id": 6,
+            "itemName": "LCD",
+            "category": "Electronics",
+            "quantity": 12,
+            "supplier": "Tech Supplier Inc.",
+            "status": "Pending"
+        },
+        {
+            "id": 7,
+            "itemName": "Laptop",
+            "category": "Electronics",
+            "quantity": 1,
+            "supplier": "Komputer Suply",
+            "status": "Pending"
+        }
+    ]
+>>>>>>> d3ab1c5755ab9482f7585e3960ed13d727aa789b
 }
