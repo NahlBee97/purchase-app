@@ -1,7 +1,6 @@
 import express, { Application, Request, Response, NextFunction } from "express";
 import { IPurchase } from "./interfaces/data.interface";
 import { readData } from "./utils/read.data.json";
-import { error } from "console";
 import { writeData } from "./utils/write.data.json";
 
 const port = 8000;
@@ -29,8 +28,23 @@ app.get("/purchase-orders", (req: Request, res: Response) => {
   }
 });
 
-// Read a Purchase Order by ID
+//Search any purchase
+app.get('/purchase-orders/search', (req: Request, res: Response) => {
+  const query = (req.query.query as string)?.toLowerCase() || '';
 
+  const filteredOrders = readData().purchaseOrders.filter((order: any) =>
+    order.itemName.toLowerCase().includes(query) ||
+    order.supplier.toLowerCase().includes(query)
+  );
+
+  res.status(200).json({
+    success: true,
+    message: "Search order success",
+    data: filteredOrders,
+  });
+});
+
+// Read a Purchase Order by ID
 app.get("/purchase-orders/:id", (req: Request, res: Response) => {
   try {
     const orderList = readData().purchaseOrders;
@@ -94,7 +108,6 @@ app.put("/purchase-orders/:id", (req: Request, res: Response) => {
 });
 
 // Create Purchase
-
 app.post("/purchase-orders", (req: Request, res: Response) => {
   const { itemName, category, quantity, supplier, status } = req.body;
   const data = readData();
